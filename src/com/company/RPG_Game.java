@@ -10,15 +10,18 @@ public class RPG_Game {
 
 
     public static void start() {
-        Boss boss = new Boss(800, 55, "Танос");
+        Boss boss = new Boss(1500, 50, "Танос");
 
         Warrior warrior = new Warrior(250, 20, "Капитан Америка");
-        Medic medic = new Medic(170, 15, "Полярис", 20);
+        Medic medic = new Medic(170, 15, "Полярис", 10);
         Magic magic = new Magic(240, 25, "Алая ведьма");
         Berserk berserk = new Berserk(260, 22, "Халк");
-        Medic assistant = new Medic(140, 10, "Небула", 15);
+        Medic assistant = new Medic(140, 10, "Небула", 5);
+        Tank tank = new Tank(300, 15, "Iron Man");
+        Thor thor = new Thor(210, 20, "Тор");
+        Witcher witcher = new Witcher(250,0,"Сокол");
 
-        Heroes[] heroes = {warrior, medic, magic, berserk, assistant};
+        Heroes[] heroes = {warrior, medic, magic, berserk, assistant, tank, thor, witcher};
         printStatics(boss, heroes);
 
         while (!isGameGinish(boss, heroes)) {
@@ -39,8 +42,7 @@ public class RPG_Game {
     private static void bossHits(Boss boss, Heroes[] heroes) {
         for (Heroes hero : heroes) {
             if (hero.getHealth() > 0) {
-                hero.setHealth(hero.getHealth() - boss.getDamage());
-            }
+                hero.setHealth(hero.getHealth() - boss.getDamage());}
         }
     }
 
